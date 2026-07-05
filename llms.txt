@@ -1,0 +1,23 @@
+# Chew
+
+> Chew is a women-owned coffee shop, café and bakery at 76 Church Street, Wynberg, Cape Town. Real coffee, fresh-baked croissants, milkshakes, smoothies and breakfasts. Rated 4.3★ on Google. Open Monday–Friday, 7am–4pm.
+
+## Key facts
+- Name: Chew
+- Type: Coffee shop / café / bakery (women-owned)
+- Address: 76 Church Street, Wynberg, Cape Town, 7800, South Africa
+- Hours: Monday–Friday, 7:00am–4:00pm (closed weekends)
+- Phone: 084 992 2088 (+27 84 992 2088)
+- Instagram: https://instagram.com/chew_wynberg
+- Order (delivery/pickup): https://www.ubereats.com/za/store/chew/CxgQ4EXIRkGeoMhEpds4qA
+- Google reviews / map: https://share.google/MRBzK8PPvixv3xaPA
+- Rating: 4.3 / 5 across 12 Google reviews
+
+## Menu highlights
+- Hot drinks: espresso, americano, cappuccino, flat white, latte, mocha, red (rooibos) cappuccino, rooibos & tea, hot chocolate, iced coffee
+- Milkshakes & mocktails: strawberry perfection, chocolate bliss, weekly special, ocean lemonade (passionfruit), piña colada (mixed berry)
+- Smoothies: berry banana, nutty banana, avo refresher, strawberry sunset
+- Bakery & kitchen: fresh-baked croissants, scones, made-to-order sandwiches, breakfasts
+
+## Pages
+- [Home](https://chew-wynberg-masterclass.vercel.app/): hero, why Chew, menu, build-your-order, reviews, visit & map, FAQ.

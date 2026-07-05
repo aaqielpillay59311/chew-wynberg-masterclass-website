@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chew-wynberg-masterclass.vercel.app/sitemap.xml
