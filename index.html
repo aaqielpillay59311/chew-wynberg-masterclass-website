@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#fbf5ee" media="(prefers-color-scheme: light)" />
 
 <title>Chew · Coffee Shop & Bakery in Wynberg, Cape Town</title>
-<meta name="description" content="Chew is a women-owned coffee shop, café & bakery on Church Street, Wynberg. Freshly-baked croissants, real coffee, milkshakes & breakfasts. 4.3★ on Google. Open Mon–Fri 7am–4pm." />
+<meta name="description" content="Chew is a women-owned coffee shop, café & bakery on Church Street, Wynberg. Fresh croissants, real coffee, milkshakes & breakfasts. Rated 4.3 on Google. Open Mon–Fri, 7am–4pm." />
 <meta name="keywords" content="Chew, coffee shop Wynberg, café Wynberg, bakery Wynberg, coffee Cape Town, croissants Wynberg, breakfast Wynberg, women-owned café Cape Town" />
 <meta name="author" content="Chew" />
 <link rel="canonical" href="https://chew-wynberg-masterclass.vercel.app/" />
@@ -54,8 +54,8 @@
   "image": "https://chew-wynberg-masterclass.vercel.app/assets/og.jpg",
   "logo": "https://chew-wynberg-masterclass.vercel.app/assets/chew-mark.png",
   "telephone": "+27849922088",
-  "priceRange": "R35–R200",
-  "servesCuisine": ["Coffee", "Café", "Bakery", "Breakfast"],
+  "priceRange": "$$",
+  "servesCuisine": ["Coffee", "Breakfast", "Sandwiches"],
   "currenciesAccepted": "ZAR",
   "address": {
     "@type": "PostalAddress",
@@ -98,8 +98,7 @@
       "reviewBody": "Warm and homely — we really enjoyed the drinks and snacks prepared for us with the workshop we attended."
     }
   ],
-  "hasMenu": "https://chew-wynberg-masterclass.vercel.app/#menu",
-  "acceptsReservations": "False"
+  "hasMenu": "https://chew-wynberg-masterclass.vercel.app/#menu"
 }
 </script>
 <script type="application/ld+json">
@@ -592,7 +591,7 @@ body.menu-open .wa-float{opacity:0;pointer-events:none}
           <div class="fc-ava">L</div>
           <div>
             <div class="fc-q">“Excellent service and delicious food — great value.”</div>
-            <div class="fc-n">La-eeqah · Google ★★★★★</div>
+            <div class="fc-n">La-eeqah · Google review · 5/5</div>
           </div>
         </div>
       </div>
@@ -840,7 +839,7 @@ body.menu-open .wa-float{opacity:0;pointer-events:none}
         </article>
         <article class="testi-card agg-card">
           <span class="agg-num">4.3</span>
-          <span class="tc-stars" style="color:#ffd98a;justify-content:center">★★★★<span style="opacity:.5">★</span></span>
+          <span class="tc-stars" aria-hidden="true" style="color:#ffd98a;justify-content:center">★★★★<span style="opacity:.5">★</span></span>
           <blockquote>“Rated 4.3 across 12 Google reviews — and every croissant is trying to make it a 5.”</blockquote>
           <div class="tc-author" style="justify-content:center">
             <div class="tc-meta" style="text-align:center"><b style="color:#fff">See all reviews on Google →</b></div>
@@ -1134,6 +1133,11 @@ body.menu-open .wa-float{opacity:0;pointer-events:none}
     /* ---- Menu tabs ---- */
     var tabs = document.querySelectorAll(".menu-tab");
     tabs.forEach(function(tab){
+      var pkey = tab.getAttribute("data-panel");
+      tab.id = "tab-" + pkey;
+      tab.setAttribute("aria-controls", "panel-" + pkey);
+      var pnl = document.getElementById("panel-" + pkey);
+      if(pnl){ pnl.setAttribute("aria-labelledby", "tab-" + pkey); pnl.setAttribute("tabindex", "0"); }
       tab.addEventListener("click", function(){
         tabs.forEach(function(t){ t.classList.remove("active"); t.setAttribute("aria-selected","false"); });
         tab.classList.add("active"); tab.setAttribute("aria-selected","true");
@@ -1179,6 +1183,7 @@ body.menu-open .wa-float{opacity:0;pointer-events:none}
       orderWa.setAttribute("target","_blank"); orderWa.setAttribute("rel","noopener");
       orderWa.setAttribute("aria-disabled","false"); orderWa.style.opacity="1"; orderWa.style.pointerEvents="auto";
     }
+    renderOrder(); // set correct disabled state on load
 
     /* ---- Testimonial carousel ---- */
     var track = document.getElementById("testiTrack");
@@ -1218,12 +1223,18 @@ body.menu-open .wa-float{opacity:0;pointer-events:none}
     }
 
     /* ---- FAQ accordion ---- */
-    document.querySelectorAll(".faq-item").forEach(function(item){
+    document.querySelectorAll(".faq-item").forEach(function(item, idx){
       var q = item.querySelector(".faq-q"), a = item.querySelector(".faq-a");
+      var aid = "faq-a-" + (idx + 1);
+      a.id = aid; a.setAttribute("role", "region");
+      q.setAttribute("aria-expanded", "false"); q.setAttribute("aria-controls", aid);
       q.addEventListener("click", function(){
         var open = item.classList.contains("open");
-        document.querySelectorAll(".faq-item").forEach(function(o){ o.classList.remove("open"); o.querySelector(".faq-a").style.maxHeight=null; });
-        if(!open){ item.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; }
+        document.querySelectorAll(".faq-item").forEach(function(o){
+          o.classList.remove("open"); o.querySelector(".faq-a").style.maxHeight=null;
+          o.querySelector(".faq-q").setAttribute("aria-expanded","false");
+        });
+        if(!open){ item.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; q.setAttribute("aria-expanded","true"); }
       });
     });
 
