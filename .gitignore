@@ -4,5 +4,6 @@ node_modules/
 .vercel
 *.log
 _research/
-
-.vercel
+_audit/
+package.json
+package-lock.json
